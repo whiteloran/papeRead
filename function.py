@@ -34,12 +34,6 @@ def getmetareview(k):
     return k
 
 
-def addingdata(thefuturer,lista):
-    thedata = thefuturer.result()
-    lista.append(thedata)
-    return lista
-
-
 def writedb(therows):
     f = open('1.csv','w+',encoding='utf-8',newline='')
     csv_writer = csv.writer(f)

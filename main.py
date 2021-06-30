@@ -9,6 +9,13 @@ from function import *
 
 
 lista=[]
+def addingdata(thefuturer):
+    global lista
+    thedata = thefuturer.result()
+    print(thedata)
+    lista.append(thedata)
+    return lista
+
 
 pool = ThreadPoolExecutor(10)
 r = requests.get('https://proceedings.neurips.cc/paper/2020')
@@ -19,21 +26,11 @@ listdata = origindata.find_all('li')
 
 for i in range(2, len(listdata)):
     #print(listdata[i].a.text)
-    pool.submit(getabstract, listdata[i],i).add_done_callback(addingdata)
+    lista = pool.submit(getabstract, listdata[i],i).add_done_callback(addingdata)
 
-#print(listedata)
+
 writedb(lista)
 
 print('completed!')
 
 print(lista[1])
-
-#print(listdata[3])
-
-#listedata = []
-#name = []
-#author = []
-#linker = []
-#abstract = []
-#review = []
-#metareview = []

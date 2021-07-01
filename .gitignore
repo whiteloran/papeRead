@@ -1,3 +1,7 @@
 /.vscode/
 .csv
-thehtm
+.html
+/db/
+/__pycache__/
+/.git/
+config.txt
